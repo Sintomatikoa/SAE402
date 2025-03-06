@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaussure color picker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.js"></script>
+</head>
+<body>
+    <div id="container">
+        <svg id="product.svg" class="color-changing-svg" xmlns="http://www.w3.org/2000/svg" data-name="Calque 1" viewBox="0 0 1600 900" width="1600" height="900">
+            <path id="product-shape" d="M272.66 564.02s-1.02-104.87 4.6-113.71 21.45-42.54 48.77-53.27c0 0 29.11-5.62 64.85-28.34 1.29-.82 34.64 19.02 82.47 18.38 14.13-2.47 89.02 2.3 165.96-87.32l17.7 5.53s46.3 31.66 65.7 38.47 50.72 23.15 50.72 23.15 8.51 3.4 11.57 6.81 25.36 20.1 41.19 26.55c9.19 3.74 49.7 17.36 57.87 24.51s24.43 20.3 40.85 25.52c13.96 4.44-36.16 62.48-52.43 67.08s-59.91 56.85-72.53 88.17c-1.53 3.81-50.7-19.74-243.04-26.21-140.6-8.17-284.26-15.32-284.26-15.32Z" style="fill:#e84e1b"onclick="selectPath('product-shape')"/>
+            <path id="shoe-second" d="M941.34 458.32s-6.64 38.04-56.17 67.91c-43.66 29.87-67.4 83.49-67.4 83.49 90.64 26.81 532.85 39.06 549.02-35.83-6.98-26.21-20.26-40.51-20.26-40.51s-147.06 61.28-314.04 32.68c0 0-69.96-13.09-40.34-94.47.89-2.45-50.81-13.28-50.81-13.28Z" style="fill:#009540" onclick="selectPath('shoe-second')"/>
+        </svg>  
+        <img id="background-image" src="chaussure.jpg" alt="">
+    </div>
+
+    <!-- Color Picker -->
+    <input id="color-picker" class="jscolor {onFineChange:'applyColor(this)'}" style="position: fixed; bottom: 2em; right: 2em;">
+    <script src="script.js"></script>
+</body>
+</html>
