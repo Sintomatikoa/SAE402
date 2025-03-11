@@ -28,7 +28,7 @@ speedInput.addEventListener('input', () => {
 
 const lottieContainer = document.getElementById('lottie');
 const animation = bodymovin.loadAnimation({container: lottieContainer,
-path: 'https://raw.githubusercontent.com/Sintomatikoa/chaussure-td/main/anim.json',
+path: 'anim.json',
 renderer: 'svg',
 loop: true,
 autoplay: false,
