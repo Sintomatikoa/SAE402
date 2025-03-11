@@ -45,3 +45,18 @@ body, html {
     background: white;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+.lottie {
+    position: relative;
+    z-index:4;
+    width:50%;
+    bottom:900px;
+}
+
+input[type="range"] {
+    position:relative;
+    width: 200px; /* Largeur du curseur */
+    height: 20px; /* Hauteur du curseur */
+    margin: 10px 0; /* Marge pour l'espacement */
+    z-index:999;
+}
