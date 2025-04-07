@@ -1,0 +1,228 @@
+
+
+
+
+
+/* styles.css */
+:root {
+    --primary: #8B0000;
+    --primary-hover: #A00000;
+    --secondary: #2D2D2D;
+    --background: #F8F9FA;
+    --surface: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #4A4A4A;
+    --border: #E0E0E0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Container Styles */
+.container {
+    position: relative;
+    width: min(90%, 720px);
+    margin: 4rem auto;
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+/* Product Image Section */
+.product-display {
+    position: relative;
+    padding: 1.5rem;
+    background: var(--background);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+#product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+#color-overlay {
+    position: absolute;
+    top: -10px;
+    left: 78px;
+    width: 80%;
+    height: 100%;
+    mix-blend-mode: multiply;
+}
+
+/* Typography */
+h1 {
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 3rem;
+    text-align: center;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Color Picker */
+.color-picker {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.color-option {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid var(--border);
+    overflow: hidden;
+    background: var(--surface);
+}
+
+.color-option:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.color-option.active {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.15);
+}
+
+.color-option.active::after {
+    content: '✓';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Lottie Animation */
+.lottie-container {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: drop-shadow(0 4px 12px rgba(139, 0, 0, 0.15));
+}
+
+.color-swatch {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    transition: var(--transition);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Interactive States */
+.color-option.active .lottie-container {
+    opacity: 1;
+}
+
+.color-option:hover .color-swatch {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+        margin: 1.5rem 0 2rem;
+    }
+
+    .color-picker {
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .color-option {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@media (max-width: 480px) {
+    .color-picker {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .color-option {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+
+    .color-option.active::after {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+}
+
+/* Loading State */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    animation: fadeIn 0.6s ease forwards;
+}
